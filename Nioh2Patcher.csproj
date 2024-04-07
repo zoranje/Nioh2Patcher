@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
+	<PublishSingleFile>true</PublishSingleFile>
+	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Steamless.API">
+      <HintPath>..\Plugins\Steamless.API.dll</HintPath>
+    </Reference>
+    <Reference Include="Steamless.Unpacker.Variant31.x64">
+      <HintPath>..\Plugins\Steamless.Unpacker.Variant31.x64.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

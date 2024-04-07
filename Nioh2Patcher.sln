@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nioh2Patcher", "Nioh2Patcher.csproj", "{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Debug|x86.ActiveCfg = Debug|x86
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Debug|x86.Build.0 = Debug|x86
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Release|x86.ActiveCfg = Release|x86
+		{960A0E5B-2415-4F4A-8D49-F6746FFBEFC8}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C88A45A-E819-4715-B56C-E5B4358129E6}
+	EndGlobalSection
+EndGlobal
