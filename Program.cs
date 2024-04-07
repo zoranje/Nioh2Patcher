@@ -111,22 +111,24 @@ namespace Nioh2Patcher
                     }
                 }
 
-                foreach (var patch in patches)
+                int patchCtr = 0;
+                for (int i =0; i<patches.Count; i++)
                 {
-                    int index = findPattern(buffer, patch);
+                    int index = findPattern(buffer, patches[i]);
                     if (index == -1)
                     {
-                        Console.WriteLine($"Pattern not found: {BitConverter.ToString(patch.Pattern)}");
+                        Console.WriteLine($"({i + 1}/{patches.Count}) Pattern not found: {BitConverter.ToString(patches[i].Pattern)}");
                     }
                     else
                     {
-                        Array.Copy(patch.Replacement, 0, buffer, index + patch.Offset, patch.Replacement.Length);
-                        Console.WriteLine($"Patch applied: {BitConverter.ToString(patch.Pattern)} -> {BitConverter.ToString(patch.Replacement)} at 0x{index + patch.Offset:X}");
+                        Array.Copy(patches[i].Replacement, 0, buffer, index + patches[i].Offset, patches[i].Replacement.Length);
+                        Console.WriteLine($"({i + 1}/{patches.Count}) Patch applied: {BitConverter.ToString(patches[i].Pattern)} -> {BitConverter.ToString(patches[i].Replacement)} at 0x{index + patches[i].Offset:X}");
+                        patchCtr++;
                     }
                 }
 
                 File.WriteAllBytes(EXE_FILE, buffer);
-
+                Console.WriteLine($"({patchCtr}/{patches.Count}) Patches successfully applied !");
                 Console.WriteLine("\nDone !");
 
                 Exit();
