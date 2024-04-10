@@ -56,7 +56,7 @@ namespace Nioh2Patcher
 
             if (!UnpackExe())
             {
-                Console.WriteLine($"\nUnpacking of {EXE_FILE} failed !");
+                Console.WriteLine($"\nFailed to unpack {EXE_FILE} !");
                 Exit();
                 return;
             }
@@ -114,7 +114,7 @@ namespace Nioh2Patcher
                 int patchCtr = 0;
                 for (int i =0; i<patches.Count; i++)
                 {
-                    int index = findPattern(buffer, patches[i]);
+                    int index = findPattern(buffer, patches[i].Pattern);
                     if (index == -1)
                     {
                         Console.WriteLine($"({i + 1}/{patches.Count}) Pattern not found: {BitConverter.ToString(patches[i].Pattern)}");
@@ -126,10 +126,15 @@ namespace Nioh2Patcher
                         patchCtr++;
                     }
                 }
-
-                File.WriteAllBytes(EXE_FILE, buffer);
-                Console.WriteLine($"({patchCtr}/{patches.Count}) Patches successfully applied !");
-                Console.WriteLine("\nDone !");
+                if (patchCtr == 0)
+                {
+                    Console.WriteLine($"\nFailed to patch {EXE_FILE} !");
+                } else
+                {
+                    File.WriteAllBytes(EXE_FILE, buffer);
+                    Console.WriteLine($"({patchCtr}/{patches.Count}) Patches successfully applied !");
+                    Console.WriteLine("\nDone !");
+                }
 
                 Exit();
                 return;
@@ -143,11 +148,11 @@ namespace Nioh2Patcher
             }
         }
 
-        private static int findPattern(byte[] source, Patch patch, int startIndex = 0)
+        private static int findPattern(byte[] source, byte[] pattern, int startIndex = 0)
         {
-            for (int i = startIndex; i <= source.Length - patch.Pattern.Length; i++)
+            for (int i = startIndex; i <= source.Length - pattern.Length; i++)
             {
-                if (source.Skip(i).Take(patch.Pattern.Length).SequenceEqual(patch.Pattern))
+                if (source.Skip(i).Take(pattern.Length).SequenceEqual(pattern))
                 {
                     return i;
                 }
